@@ -22,7 +22,6 @@ namespace EveStats
 				});
 
 			builder.Services.AddBlazorWebView();
-			builder.Services.AddSingleton<WeatherForecastService>();
 
 			return builder.Build();
 		}
