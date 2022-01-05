@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EveStats.Services
+namespace EveStats.Service
 {
     interface ISSOWebServer : IDisposable
     {
