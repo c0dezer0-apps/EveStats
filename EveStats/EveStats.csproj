@@ -69,6 +69,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>OtherResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Data\Resources\APISettings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>APISettings.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,11 +85,20 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>OtherResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Data\Resources\APISettings.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>APISettings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Data\NewFolder\" />
 	  <Folder Include="Service\Helpers\" />
+	  <Folder Include="Service\Serializers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
+	  <PackageReference Include="System.Reactive.Windows.Threading" Version="5.0.0" />
 	</ItemGroup>
 
 </Project>

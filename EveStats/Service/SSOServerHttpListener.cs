@@ -15,7 +15,6 @@ namespace EveStats.Service
     public class SSOServerHttpListener : ISSOWebServer
     {
         private const int PORT = 4916;
-        private const string CLIENTID = "acf04602dbf44fa28754758410ba246f";
 
         private static readonly object RESPONSE_LOCK = new();
         private static readonly TimeSpan TIMEOUT_IDLE = TimeSpan.FromSeconds(10.0);
@@ -27,7 +26,6 @@ namespace EveStats.Service
 
         private readonly HttpListener listener;
         private readonly HttpListenerTimeoutManager manager;
-        private string prefix;
 
         private static void InitResponses()
         {
@@ -41,13 +39,7 @@ namespace EveStats.Service
             }
         }
 
-        protected string Prefix
-        {
-            get { return prefix; }
-            set { prefix = value; }
-        }
-        protected static string ClientId => CLIENTID;
-        protected static int Port => PORT;
+        protected string Prefix { get; set; }
 
         public SSOServerHttpListener()
         {
