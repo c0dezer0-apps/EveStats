@@ -58,4 +58,33 @@
 		<Content Remove="Properties\launchSettings.json" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Data\Resources\APIConstants.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>APIConstants.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Data\Resources\OtherResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>OtherResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Data\Resources\APIConstants.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>APIConstants.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Data\Resources\OtherResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>OtherResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Data\NewFolder\" />
+	  <Folder Include="Service\Helpers\" />
+	</ItemGroup>
+
 </Project>
