@@ -1,7 +1,6 @@
 ﻿@page "/character"
 
-@using EveStats.Data;
-
+@using EveStats.Services;
 
 <h3>Character</h3>
 
@@ -11,9 +10,9 @@
 }
 else
 {
-    
+    <h6>Character Name: </h6> <p>@character[Name]</p>
 }
 
 @code {
-    private Object character;
+    
 }
