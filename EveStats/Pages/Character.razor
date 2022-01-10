@@ -1,17 +1,10 @@
 ﻿@page "/character"
 
-@using EveStats.Services;
+@using EveStats.Service;
 
 <h3>Character</h3>
 
-@if (character == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <h6>Character Name: </h6> <p>@character[Name]</p>
-}
+
 
 @code {
     
