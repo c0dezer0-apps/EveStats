@@ -11,8 +11,7 @@ namespace EveStats.Service.Web
 
     public class HttpClientService
     {
-        static HttpClient client;
-
+        protected static HttpClient Client { get; set; }
         protected static Uri SSOBase => new(APIConstants.SSOBase);
         protected static Uri ESI_BASE => new(APIConstants.ESIBase);
         protected static TimeSpan RTimeout => TimeSpan.FromSeconds(30);
@@ -23,21 +22,22 @@ namespace EveStats.Service.Web
         /// <param name="receiver"></param>
         public HttpClientService(string receiver)
         {
-            client = new();
-            client.BaseAddress = receiver == "SSO" ? SSOBase : ESI_BASE;
+            Client = new();
+            Client.BaseAddress = receiver == "SSO" ? SSOBase : ESI_BASE;
             // Making sure there are no unnecessary Headers
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            client.Timeout = RTimeout;
+            Client.DefaultRequestHeaders.Accept.Clear();
+            // Set header depending on receipient.
+            Client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue(receiver == "SSO" ? "application/x-www-form-urlencoded" : "application/json"));
+            Client.Timeout = RTimeout;
         }
 
         /// <summary>
         /// Cancel all requests.
         /// </summary>
-        public void Cancel()
+        public static void Cancel()
         {
-            client.CancelPendingRequests();
+            Client.CancelPendingRequests();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace EveStats.Service.Web
         /// </summary>
         public static void Dispose()
         {
-            client.Dispose();
+            Client.Dispose();
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace EveStats.Service.Web
         /// <returns>string</returns>
         public static string Mode()
         {
-            return client.BaseAddress == SSOBase ? "SSO" : "ESI";
+            return Client.BaseAddress == SSOBase ? "SSO" : "ESI";
         }
     }
 }
