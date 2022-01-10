@@ -106,7 +106,7 @@ namespace EveStats.Service
         {
             if (string.IsNullOrEmpty(state))
                 throw new ArgumentNullException(nameof(state));
-            WaitForCodeAsync(state).ContinueWith(result => );
+            //WaitForCodeAsync(state).ContinueWith(result => );
         }
 
         private static async Task<string> SendResponseAsync(string state, HttpListenerResponse output, NameValueCollection queryParams)
