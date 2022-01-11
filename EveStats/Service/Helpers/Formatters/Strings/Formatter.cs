@@ -10,7 +10,7 @@ namespace EveStats.Service.Helpers.Formatters.Strings
     /// <value><c>SingleInput</c> is a single <c>string</c> to format.</value>
     /// <value><c>ArrayOfOutputs</c> is the altered <c>ArrayOfInputs</c>.</value>
     /// <value><c>Output</c> is the altered <c>SingleInput</c>.</value>
-    public class FormatterBase
+    public class Formatter
     {
         protected string[] ArrayOfInputs { get; set; }
         protected string[] ArrayOfOutputs { get; set; }
@@ -71,6 +71,67 @@ namespace EveStats.Service.Helpers.Formatters.Strings
                 _ => input
             };
 
+        public Formatter Split(string input, char separator)
+        {
+            ArrayOfOutputs = input.Split(separator);
+
+            return this;
+        }
+
+        /// <summary>
+        ///     <para>Returns the specified index.</para>
+        ///     <para>Takes a string in dot notation, splits at the dot, and returns the specified index that matches the supplied string.</para>
+        /// </summary>
+        /// <param name="input">
+        ///     <para>Takes a string in dot notation</para>
+        ///     <para>
+        ///         <paramref name="input"/> represents an ESI Scope. 
+        ///         <example>
+        ///             esi-locations.read_location.v1
+        ///         </example>
+        ///     </para>
+        /// </param>
+        /// <param name="match">Takes a string.</param>
+        /// <example>
+        ///     <code>
+        ///         private string _esiCharLocation = "esi-locations.read_location.v1";
+        ///         ReturnElementAtIndex(_esiCharLocation, "read_location");
+        ///     </code>
+        ///     returns <c>"read_location"</c>.
+        /// </example>
+        /// <value><c>arr</c> is the split dot-notated string.</value>
+        /// <value><c>Output</c> sets the class property.</value>
+        /// <returns>The FormatterBase instance with the changes.</returns>
+        public Formatter ReturnElementAtIndex(string input, string match)
+        {
+            string[] arr = StringValidator(input).Split('.');
+            Output = Array.Find(arr, element => element == match);
+
+            return this;
+        }
+
+        /// <summary>
+        ///     An overload of the previous method that uses index positon instead of a match.
+        /// </summary>
+        /// <param name="input">
+        /// <para>Takes a string in dot notation</para>
+        ///     <para>
+        ///         <paramref name="input"/> represents an ESI Scope. 
+        ///         <example>
+        ///             esi-locations.read_location.v1
+        ///         </example>
+        ///     </para>
+        /// </param>
+        /// <param name="pos">Takes an integer.</param>
+        /// <value><c>Output</c> sets the class property.</value>
+        /// <returns>The FormatterBase instance with the supplied changes.</returns>
+        public Formatter ReturnElementAtIndex(string input, int pos)
+        {
+            Output = (string)StringValidator(input).Split('.').GetValue(pos);
+
+            return this;
+        }
+
         /// <summary>
         /// Converts snake_case strings to CamelCase.
         /// </summary>
@@ -86,7 +147,7 @@ namespace EveStats.Service.Helpers.Formatters.Strings
         /// <value>Prop <c>_camelCasedWord</c> is the final result.</value>
         /// <value>Prop <c>Output</c> is a class Property representing the result.</value>
         /// <returns>The modified instance.</returns>
-        public FormatterBase SnakeToCamelCase(string camel_cased_word)
+        public Formatter SnakeToCamelCase(string camel_cased_word)
         {
             string[] arr = camel_cased_word.Split('_');
             string camelCasedWord;
@@ -121,7 +182,7 @@ namespace EveStats.Service.Helpers.Formatters.Strings
         ///     </code>
         ///         
         /// </example>
-        public FormatterBase SnakeToCamelCase(string[] arr_of_camel_cased_words)
+        public Formatter SnakeToCamelCase(string[] arr_of_camel_cased_words)
         {
             int index = 0;
             string camelCasedWord;
