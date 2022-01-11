@@ -1,5 +1,4 @@
 ﻿using System;
-using EveStats.Service.Helpers;
 
 namespace EveStats.Service.Helpers.Extensions
 {
