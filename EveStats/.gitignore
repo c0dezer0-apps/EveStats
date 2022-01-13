@@ -454,4 +454,4 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 
 # Secret Stuff
-Data/Resources/TopSecretStuff.json
+Data/TopSecretStuff.json
