@@ -61,43 +61,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Data\Resources\APIConstants.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>APIConstants.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Data\Resources\OtherResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>OtherResources.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Data\Resources\APISettings.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>APISettings.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="Data\Resources\APIConstants.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>APIConstants.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Data\Resources\OtherResources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>OtherResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Data\Resources\APISettings.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>APISettings.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+	  <Content Include="Data\.cache\APIConstants.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Characters.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Inventory\Minerals.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Inventory\Modules.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Inventory\Ore.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Inventory\Ships.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\ManufacturingJobs.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Reactions.json" />
+	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\ScienceJobs.json" />
+	  <Content Include="Data\.cache\TopSecretStuff.json" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
 	  <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
 	  <PackageReference Include="System.Reactive.Windows.Threading" Version="5.0.0" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Abstracts\" />
+	  <Folder Include="Data\.cache\eve_online\Universe\" />
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties data_4resources_4eve_x0020_online_4alliance_4corporation_4character_4characters_1json__JsonSchema="https://goreleaser.com/static/schema-pro.json" /></VisualStudio></ProjectExtensions>
 
 </Project>
