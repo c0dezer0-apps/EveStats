@@ -1,0 +1,6 @@
+{
+  "esiBase": "https://esi.evetech.net",
+  "SSOBase": "https://login.eveonline.com/oauth/",
+  "ssoLogin": "authorize/?response_type=code&amp;redirect_uri={0}&amp;client_id={3}&amp;scope={2}&amp;state={1}",
+  "ssoRedirect": "http://localhost:{0:D}/callback" 
+}
