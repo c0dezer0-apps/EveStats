@@ -12,6 +12,10 @@ a, .btn-link {
 	color: #0077cc;
 }
 
+.Title {
+	text-align: center;
+}
+
 .btn-primary {
 	color: #fff;
 	background-color: #1b6ec2;
