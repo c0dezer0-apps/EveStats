@@ -38,15 +38,23 @@ namespace EveStats.Data.Server
         /// <value><c>w</c> opens file for writing.</value>
         public static void StoreJson(dynamic json, string filePath)
         {
-            string pathToApp = AppContext.BaseDirectory;
+            string cache = $"{AppContext.BaseDirectory}.cache/{filePath}";
 
             JsonSerializer serializer = new JsonSerializer();
             serializer.Converters.Add(new JavaScriptDateTimeConverter());
             serializer.NullValueHandling = NullValueHandling.Include;
 
-            using StreamWriter sw = new ($"../Data/Resources/{filePath}");
-            using JsonWriter writer = new JsonTextWriter(sw);
-            serializer.Serialize(writer, json);
+            if (!File.Exists(cache))
+            {
+                File.Create(cache);
+            }
+            else
+            {
+                using StreamWriter sw = new(cache);
+                using JsonWriter writer = new JsonTextWriter(sw);
+                serializer.Serialize(writer, json);
+            }
+
         }
     }
 }
