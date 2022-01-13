@@ -1,7 +1,16 @@
 ﻿@page "/ESIAddCharacter"
 
-<h3>ESIAddCharacter</h3>
+@using EveStats.Service.Helpers.Web
+@using EveStats.Service.Web
+
+<div class="container">
+    <form method="post" action="#">
+
+    </form>
+</div>
+
 
 @code {
-
+    string[] _listOfScopes = ESIScopeListGenerator.ListOfScopes();
+    string SSOLink = SSOAuthenticationService.GenerateSSOLink();
 }

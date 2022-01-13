@@ -12,10 +12,17 @@ namespace EveStats.Service.Helpers.Formatters.Strings
     /// <value><c>Output</c> is the altered <c>SingleInput</c>.</value>
     public class Formatter
     {
+        private bool initialized = false;
+
         protected string[] ArrayOfInputs { get; set; }
         protected string[] ArrayOfOutputs { get; set; }
         protected string Input { get; set; }
         protected string Output { get; set; }
+        protected bool Initialized
+        {
+            get { return initialized; }
+            set { initialized = value; }
+        }
 
         /// <summary>
         /// Initializes the default values with supplied parameters. 
@@ -27,6 +34,7 @@ namespace EveStats.Service.Helpers.Formatters.Strings
             ArrayOfOutputs = Array.Empty<string>();
             Input = string.Empty;
             Output = string.Empty;
+            Initialized = true;
         }
 
         /// <param name="input">Takes a single string.</param>
@@ -36,6 +44,7 @@ namespace EveStats.Service.Helpers.Formatters.Strings
             ArrayOfOutputs = Array.Empty<string>();
             Input = input;
             Output = string.Empty;
+            Initialized = true;
         }
 
         /// <summary>
@@ -71,9 +80,42 @@ namespace EveStats.Service.Helpers.Formatters.Strings
                 _ => input
             };
 
+        /// <summary>
+        /// Only need so methods can be chained. Will create overloads as needed.
+        /// </summary>
         public Formatter Split(string input, char separator)
         {
+            if (!Initialized)
+                Initialize(input);
+
             ArrayOfOutputs = input.Split(separator);
+
+            return this;
+        }
+
+        public Formatter ReturnElementAtIndex(int pos)
+        {
+            if (!Initialized)
+                throw new ArgumentException("You can't format an empty string!");
+
+            if (ArrayOfInputs.Length < 1)
+                Output = (string)StringValidator(Input).Split('.').GetValue(pos);
+            else
+            {
+                for (int i = 0; i < ArrayOfInputs.Length; i++)
+                {
+                    ArrayOfOutputs[i] = (string)StringValidator(ArrayOfInputs[i]).Split('.').GetValue(pos);
+                }
+            }
+
+            return this;
+        }
+
+        public Formatter ReturnElementAtIndex(string match)
+        {
+            if (!Initialized)
+                throw new ArgumentException("You can't format an empty string!");
+            
 
             return this;
         }
@@ -104,6 +146,9 @@ namespace EveStats.Service.Helpers.Formatters.Strings
         /// <returns>The FormatterBase instance with the changes.</returns>
         public Formatter ReturnElementAtIndex(string input, string match)
         {
+            if (!Initialized)
+                Initialize(input);
+
             string[] arr = StringValidator(input).Split('.');
             Output = Array.Find(arr, element => element == match);
 
@@ -127,6 +172,9 @@ namespace EveStats.Service.Helpers.Formatters.Strings
         /// <returns>The FormatterBase instance with the supplied changes.</returns>
         public Formatter ReturnElementAtIndex(string input, int pos)
         {
+            if(!Initialized)
+                Initialize(input);
+
             Output = (string)StringValidator(input).Split('.').GetValue(pos);
 
             return this;
@@ -149,6 +197,9 @@ namespace EveStats.Service.Helpers.Formatters.Strings
         /// <returns>The modified instance.</returns>
         public Formatter SnakeToCamelCase(string camel_cased_word)
         {
+            if (!Initialized)
+                Initialize(camel_cased_word);
+
             string[] arr = camel_cased_word.Split('_');
             string camelCasedWord;
 
@@ -184,6 +235,9 @@ namespace EveStats.Service.Helpers.Formatters.Strings
         /// </example>
         public Formatter SnakeToCamelCase(string[] arr_of_camel_cased_words)
         {
+            if (!Initialized)
+                Initialize(arr_of_camel_cased_words);
+
             int index = 0;
             string camelCasedWord;
             string[] arr = System.Array.Empty<string>();

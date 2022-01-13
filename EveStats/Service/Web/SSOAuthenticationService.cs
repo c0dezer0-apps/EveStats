@@ -57,11 +57,17 @@ namespace EveStats.Service.Web
             StatusCode = new();
         }
 
-        /* async Task<HttpResponseMessage> Authenticate()
+        public static string GenerateSSOLink()
         {
-            ResponseMessage = await Client.GetAsync();
+
+            return string.Empty;
+        }
+
+        async Task<HttpResponseMessage> Authenticate(string path)
+        {
+            ResponseMessage = await Client.GetAsync(path);
 
             return ResponseMessage;
-        }*/
+        }
     }
 }
