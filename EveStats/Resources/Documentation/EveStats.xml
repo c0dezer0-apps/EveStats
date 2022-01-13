@@ -1,1 +1,358 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EveStats</name>
+    </assembly>
+    <members>
+        <member name="T:EveStats.Data.Resources.APIConstants">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.CitadelInfo">
+            <summary>
+              Looks up a localized string similar to /latest/universe/structures/{0}.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.ESIBase">
+            <summary>
+              Looks up a localized string similar to https://esi.evetech.net.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.ESIScopes">
+            <summary>
+              Looks up a localized string similar to publicData esi-calendar.respond_calendar_events.v1 esi-calendar.read_calendar_events.v1 esi-location.read_location.v1 esi-location.read_ship_type.v1 esi-mail.organize_mail.v1 esi-mail.read_mail.v1 esi-mail.send_mail.v1 esi-skills.read_skills.v1 esi-skills.read_skillqueue.v1 esi-wallet.read_character_wallet.v1 esi-wallet.read_corporation_wallet.v1 esi-search.search_structures.v1 esi-clones.read_clones.v1 esi-characters.read_contacts.v1 esi-universe.read_structures.v1 esi-bookmarks.read_character_bookmarks.v1 [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.ServerStatus">
+            <summary>
+              Looks up a localized string similar to /latest/status/.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.SSOBase">
+            <summary>
+              Looks up a localized string similar to https://login.eveonline.com/oauth/.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.SSOLogin">
+            <summary>
+              Looks up a localized string similar to authorize/?response_type=code&amp;amp;redirect_uri={0}&amp;amp;client_id={3}&amp;amp;scope={2}&amp;amp;state={1}.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APIConstants.SSORedirect">
+            <summary>
+              Looks up a localized string similar to http://localhost:{0:D}/callback.
+            </summary>
+        </member>
+        <member name="T:EveStats.Data.Resources.APISettings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APISettings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APISettings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APISettings.ClientID">
+            <summary>
+              Looks up a localized string similar to acf04602dbf44fa28754758410ba246f.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.APISettings.Secret">
+            <summary>
+              Looks up a localized string similar to 1rdhnN5MNKLBgXLyfcmCvIMkKT13TjJfbMLkoq3S.
+            </summary>
+        </member>
+        <member name="T:EveStats.Data.Resources.OtherResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.OtherResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.OtherResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.OtherResources.fail">
+            <summary>
+              Looks up a localized string similar to .
+            </summary>
+        </member>
+        <member name="P:EveStats.Data.Resources.OtherResources.pass">
+            <summary>
+              Looks up a localized string similar to .
+            </summary>
+        </member>
+        <member name="T:EveStats.Service.Helpers.Extensions.StringTools">
+            <summary>
+            These extensions help format strings.
+            </summary>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Extensions.StringTools.FirstCharToUpper(System.String)">
+            <summary>
+            converts first character to upper.
+            </summary>
+            <example>
+                For example:
+                <code>
+                    string text = "word"
+                    string newText = StringTools.FirstCharToUpper(text);
+                </code>
+                returns <c>text</c> as "Word".
+            </example>
+            <param name="input">any string, preferably one word or value.</param>
+            <returns><paramref name="input"/> with the first character in upper case.</returns>
+            <exception cref="T:System.ArgumentNullException">created if the received value is null.</exception>
+            <exception cref="T:System.ArgumentException">created if the received value is an empty string.</exception>
+        </member>
+        <member name="T:EveStats.Service.Helpers.Formatters.Strings.Formatter">
+            <summary>
+                For formatting strings in various cases.
+            </summary>
+            <value><c>ArrayOfInputs</c> is an array of strings to format.</value>
+            <value><c>SingleInput</c> is a single <c>string</c> to format.</value>
+            <value><c>ArrayOfOutputs</c> is the altered <c>ArrayOfInputs</c>.</value>
+            <value><c>Output</c> is the altered <c>SingleInput</c>.</value>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.Initialize(System.String[])">
+            <summary>
+            Initializes the default values with supplied parameters. 
+            </summary>
+            <param name="arrOfInputs">Takes an array of strings.</param>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.Initialize(System.String)">
+            <param name="input">Takes a single string.</param>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.StringValidator(System.String)">
+            <summary>
+            Makes sure a supplied string is neither null nor empty.
+            </summary>
+            <example>
+                <para>
+                    If <paramref name="input"/> is correctly supplied:
+                    <code>
+                        string input = "Hello";
+                        StringValidator(input);
+                    </code>
+                    will return <c>true</c>.
+                </para>
+                <para>
+                    If <paramref name="input"/> is empty or null.
+                    <code>
+                        string input = "" // or null;
+                        StringValidator(input);
+                    </code>
+                    will result in an exception being thrown.
+                </para>
+            </example>
+            <param name="input">Represents a string.</param>
+            <returns>The supplied string.</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.Split(System.String,System.Char)">
+            <summary>
+            Only need so methods can be chained. Will create overloads as needed.
+            </summary>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.ReturnElementAtIndex(System.String,System.String)">
+            <summary>
+                <para>Returns the specified index.</para>
+                <para>Takes a string in dot notation, splits at the dot, and returns the specified index that matches the supplied string.</para>
+            </summary>
+            <param name="input">
+                <para>Takes a string in dot notation</para>
+                <para>
+                    <paramref name="input"/> represents an ESI Scope. 
+                    <example>
+                        esi-locations.read_location.v1
+                    </example>
+                </para>
+            </param>
+            <param name="match">Takes a string.</param>
+            <example>
+                <code>
+                    private string _esiCharLocation = "esi-locations.read_location.v1";
+                    ReturnElementAtIndex(_esiCharLocation, "read_location");
+                </code>
+                returns <c>"read_location"</c>.
+            </example>
+            <value><c>arr</c> is the split dot-notated string.</value>
+            <value><c>Output</c> sets the class property.</value>
+            <returns>The FormatterBase instance with the changes.</returns>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.ReturnElementAtIndex(System.String,System.Int32)">
+            <summary>
+                An overload of the previous method that uses index positon instead of a match.
+            </summary>
+            <param name="input">
+            <para>Takes a string in dot notation</para>
+                <para>
+                    <paramref name="input"/> represents an ESI Scope. 
+                    <example>
+                        esi-locations.read_location.v1
+                    </example>
+                </para>
+            </param>
+            <param name="pos">Takes an integer.</param>
+            <value><c>Output</c> sets the class property.</value>
+            <returns>The FormatterBase instance with the supplied changes.</returns>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.SnakeToCamelCase(System.String)">
+            <summary>
+            Converts snake_case strings to CamelCase.
+            </summary>
+            <example>
+                For example:
+                <code>
+                    SnakeToCamelCase("camel_case");
+                </code>
+                returns "CamelCase"
+            </example>
+            <param name="camel_cased_word">camel_case strings. (no spaces)</param>
+            <value>Prop <c>_arr</c> is <c>camel_cased_word</c> split into an array of separate strings.</value>
+            <value>Prop <c>_camelCasedWord</c> is the final result.</value>
+            <value>Prop <c>Output</c> is a class Property representing the result.</value>
+            <returns>The modified instance.</returns>
+        </member>
+        <member name="M:EveStats.Service.Helpers.Formatters.Strings.Formatter.SnakeToCamelCase(System.String[])">
+            <summary>
+                Overload that takes an array instead of a single word.
+            </summary>
+            <param name="arr_of_camel_cased_words"><c>Array</c> of camel_cased strings.</param>
+            <value><c>index</c> is an incrementor for array index.</value>
+            <value><c>camelCasedWord</c> is the result to be added to <c>ArrayOfOutputs</c>.</value>
+            <value><c>arr</c> is the camel_cased string split at the underscore into two elements.</value>
+            <value><c>ArrayOfOutputs</c> is a class property.</value>
+            <returns>The instance.</returns>
+            <example>
+                <code>
+                    private string[] _arrOfCamelCase = ["test_one", "test_two"];
+                    FormatterBase t = new(_arrOfCamelCase);
+                    t.SnakeToCamelCase(_arrOfCamelCase);
+                    
+                    Console.Out.WriteLine(t.Result);
+                </code>
+                    
+            </example>
+        </member>
+        <member name="T:EveStats.Service.SSOServerHttpListener">
+            <summary>
+            Base listener for SSO calls.
+            </summary>
+        </member>
+        <member name="T:EveStats.Service.Web.HttpClientService">
+            <summary>
+            Implementing a base web client for making API calls.
+            </summary>
+        </member>
+        <member name="M:EveStats.Service.Web.HttpClientService.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the HttpClient set to be a service for either SSO or ESI.
+            </summary>
+            <param name="receiver"></param>
+        </member>
+        <member name="M:EveStats.Service.Web.HttpClientService.Cancel">
+            <summary>
+            Cancel all requests.
+            </summary>
+        </member>
+        <member name="M:EveStats.Service.Web.HttpClientService.Dispose">
+            <summary>
+            Release and dispose of resources.
+            </summary>
+        </member>
+        <member name="M:EveStats.Service.Web.HttpClientService.Mode">
+            <summary>
+            Verifies endpoint.
+            </summary>
+            <returns>string</returns>
+        </member>
+        <member name="T:EveStats.Service.Web.SSOAuthenticationService">
+            
+             <summary>
+             Derived from the HttpClientService and authorizes with SSO.
+             </summary>
+        </member>
+        <member name="T:EveStats.WinUI.App">
+            <summary>
+            Provides application-specific behavior to supplement the default Application class.
+            </summary>
+        </member>
+        <member name="M:EveStats.WinUI.App.#ctor">
+            <summary>
+            Initializes the singleton application object.  This is the first line of authored code
+            executed, and as such is the logical equivalent of main() or WinMain().
+            </summary>
+        </member>
+        <member name="M:EveStats.WinUI.App.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:EveStats.WinUI.App.GetXamlType(System.Type)">
+            <summary>
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:EveStats.WinUI.App.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:EveStats.WinUI.App.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
+            </summary>
+        </member>
+        <member name="T:EveStats.WinUI.Program">
+            <summary>
+            Program class
+            </summary>
+        </member>
+        <member name="T:EveStats.EveStats_XamlTypeInfo.XamlMetaDataProvider">
+            <summary>
+            Main class for providing metadata for the app or library
+            </summary>
+        </member>
+        <member name="M:EveStats.EveStats_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.Type)">
+            <summary>
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:EveStats.EveStats_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:EveStats.EveStats_XamlTypeInfo.XamlMetaDataProvider.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
+            </summary>
+        </member>
+    </members>
+</doc>
