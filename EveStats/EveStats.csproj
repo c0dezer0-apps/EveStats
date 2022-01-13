@@ -61,7 +61,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="Data\.cache\APIConstants.json" />
 	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Characters.json" />
 	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Inventory\Minerals.json" />
 	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Inventory\Modules.json" />
@@ -70,7 +69,6 @@
 	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\ManufacturingJobs.json" />
 	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\Reactions.json" />
 	  <Content Include="Data\.cache\eve_online\Alliance\Corporation\Character\ScienceJobs.json" />
-	  <Content Include="Data\.cache\TopSecretStuff.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -86,6 +84,6 @@
 	  <Folder Include="Data\.cache\eve_online\Universe\" />
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties data_4resources_4eve_x0020_online_4alliance_4corporation_4character_4characters_1json__JsonSchema="https://goreleaser.com/static/schema-pro.json" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>
